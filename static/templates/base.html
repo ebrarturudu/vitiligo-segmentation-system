@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vitiligo Tespit Platformu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f6fcff;
+    }
+
+    /* === [1] EN ÜST BÖLÜM: LOGO + GİRİŞ === */
+    .top-header {
+      background-color: #2e3a59;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo-text {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .auth-links a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .auth-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* === [2] ALT BAŞLIK (VİTİLİGO PLATFORMU) === */
+    .platform-header {
+      background-color: #3a4e78;
+      text-align: center;
+      padding: 15px 20px;
+    }
+
+    .platform-header h1 {
+      margin: 0;
+      color: white;
+      font-size: 1.6rem;
+    }
+
+    .platform-header p {
+      margin: 5px 0 0;
+      color: #dbe6ff;
+      font-size: 1rem;
+    }
+
+    /* === [3] NAVİGASYON BAR === */
+    nav.navbar {
+      background-color: #2e3a59;
+      padding: 12px 0;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    nav.navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav.navbar a:hover {
+      color: #90cdf4;
+      text-decoration: underline;
+    }
+
+    /* === [4] HERO BÖLÜMÜ === */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 10%;
+      background: linear-gradient(to right, #eaf6ff, #ffffff);
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 500px;
+    }
+
+    .hero-text h2 {
+      font-size: 2.3rem;
+      color: #0d3b66;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons button {
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .hero-buttons .upload {
+      background-color: #0077c2;
+      color: white;
+    }
+
+    .hero-buttons .upload:hover {
+      background-color: #005fa3;
+    }
+
+    .hero-buttons .analyze {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    .hero-buttons .analyze:hover {
+      background-color: #27ae60;
+    }
+
+    .hero-image img {
+      width: 340px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-image {
+        margin-top: 30px;
+      }
+
+      .auth-links {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav.navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+      }
+    }
+
+    /* === NASIL ÇALIŞIR & ÖNE ÇIKAN ÖZELLİKLER === */
+.how-features {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 10%;
+  background-color: #ffffff;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: -40px;
+}
+
+.how-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.how-container h2,
+.features-container h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #0d3b66;
+}
+
+.how-steps {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 120px;
+  text-align: center;
+}
+
+.step img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+}
+
+.features-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.feature-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  background-color: #f0f8ff;
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.feature-box img {
+  width: 50px;
+  height: 50px;
+}
+
+.feature-box p {
+  font-weight: bold;
+  color: #333;
+  font-size: 1rem;
+}
+
+.footer {
+  background-color: #2e3a59;
+  color: white;
+  text-align: center;
+  padding: 20px 15px;
+  font-size: 0.95rem;
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: underline;
+  margin: 0 8px;
+}
+
+.footer-top,
+.footer-bottom {
+  margin-bottom: 10px;
+}
+
+.vitiligo-section {
+  padding: 60px 10% 40px;
+  background-color: #ffffff;
+  text-align: left;
+}
+
+.vitiligo-image img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.vitiligo-text p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.vitiligo-text strong {
+  color: #0d3b66;
+}
+
+.about-section {
+  background-color: #f8f9fa;
+  padding: 60px 10%;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  font-size: 1.8rem;
+  color: #0d3b66;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- === [1] ÜST BAR === -->
+  <div class="top-header">
+    <div class="logo-container">
+      <img src="{{ url_for('static', filename='images/saydam_logo.png') }}" alt="Logo">
+      <div class="logo-text">ABC HASTANESİ</div>
+    </div>
+    <div class="auth-links">
+      <a href="#">Giriş Yap</a>
+      <a href="#">Kayıt Ol</a>
+    </div>
+  </div>
+
+  <!-- === [2] PLATFORM BAŞLIĞI === -->
+  <div class="platform-header">
+    <h1>VİTİLİGO TESPİT PLATFORMU</h1>
+    <p>Klinik Dermatolojide Semantik Segmentasyon ile Vitiligo Şiddetinin Analiz Değerlendirmesi</p>
+  </div>
+
+  <!-- === [3] NAVBAR === -->
+  <nav class="navbar">
+    <a href="#anasayfa">ANA SAYFA</a>
+    <a href="#vitiligo">VİTİLİGO NEDİR?</a>
+    <a href="#test">TEST YAP</a>
+    <a href="#hakkimizda">HAKKIMIZDA</a>
+    <a href="#iletisim">İLETİŞİM</a>
+  </nav>
+
+  <!-- === [4] HERO BÖLÜMÜ === -->
+  <section class="hero" id="anasayfa">
+    <div class="hero-text">
+      <h2>Cildinizdeki Değişiklikleri Erken Tespit Edin</h2>
+      <p>Yapay zekâ destekli sistemimiz ile vitiligo hastalığını erken evrede tespit edin. Yalnızca bir fotoğraf yükleyin ve sonucu öğrenin.</p>
+      <div class="hero-buttons">
+        <button class="upload" onclick="window.location.href='/photoFrame'">📤 Fotoğraf Yükle</button>
+        <button class="analyze" onclick="window.location.href='/analiz'">🔍 Analize Başla</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="{{ url_for('static', filename='images/doktor-hasta.png') }}" alt="Vitiligo Görseli">
+    </div>
+  </section>
+ 
+  <!-- === NASIL ÇALIŞIR & ÖNE ÇIKANLAR === -->
+<section class="how-features">
+  <div class="how-container">
+    <h2>NASIL ÇALIŞIR?</h2>
+    <div class="how-steps">
+      <div class="step">
+        <img src="{{ url_for('static', filename='images/a_transparent.png') }}" alt="Adım 1">
+        <p>Fotoğraf Yükleyin</p>
+      </div>
+      <div class="step">
+        <img src="{{ url_for('static', filename='images/b_transparent.png') }}" alt="Adım 2">
+        <p>Segmentasyon Yapılsın</p>
+      </div>
+      <div class="step">
+        <img src="{{ url_for('static', filename='images/c_transparent.png') }}" alt="Adım 3">
+        <p>Sonucu Görüntüleyin</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-container">
+    <h2>ÖNE ÇIKAN ÖZELLİKLER</h2>
+    <div class="feature-box">
+      <img src="{{ url_for('static', filename='images/hizli.png') }}" alt="Hızlı">
+      <p>Hızlı ve Güvenilir</p>
+    </div>
+    <div class="feature-box">
+      <img src="{{ url_for('static', filename='images/tibbi.png') }}" alt="Tıbbi">
+      <p>Tıbbi Destekli Sonuç</p>
+    </div>
+    <div class="feature-box">
+      <img src="{{ url_for('static', filename='images/kolay.png') }}" alt="Kullanıcı Dostu">
+      <p>Kolay Kullanım</p>
+    </div>
+  </div>
+</section>
+
+ <!-- === VİTİLİGO NEDİR === -->
+<section id="vitiligo" class="vitiligo-section">
+  <div class="vitiligo-image">
+    <img src="{{ url_for('static', filename='images/vitiligo.jpg') }}" alt="Vitiligo Görseli">
+  </div>
+  <div class="vitiligo-text">
+    <p>
+      Vitiligo derimize rengini veren “melanosit” adlı hücrelerin henüz nedenini tam olarak bilmediğimiz şekilde hasar görüp yok olmalarıyla ortaya çıkan,
+      deride dağınık ve yama şeklinde sınırları belirgin süt beyaz lekeler ile kendini gösteren edinsel bir hastalıktır.
+      Halk arasında ala hastalığı olarak da bilinir.
+    </p>
+    <p>
+      <strong>Vitiligo</strong> dünya nüfusunun yaklaşık %0,5-2’sini etkilemektedir. Görülme sıklığında cinsiyete bağlı bir fark yoktur.
+      Hastalığın kendisi kalıtsal değildir. Ancak genetik yatkınlık söz konusudur.
+      Hastalık doğumdan itibaren her yaşta görülebilirse de ileri yaşlarda ve bebeklerde çok nadirdir.
+    </p>
+  </div>
+</section>
+
+<!-- === HAKKIMIZDA === -->
+<section id="hakkimizda" class="about-section">
+  <div class="about-container">
+    <div class="about-image">
+      <img src="{{ url_for('static', filename='images/hastane.png') }}" alt="Hastane Görseli">
+    </div>
+    <div class="about-text">
+      <h2>Hakkımızda</h2>
+      <p>
+        ABC Hastanesi olarak, insan sağlığını ön planda tutan bir yaklaşımla, en son teknolojileri ve bilimsel gelişmeleri hizmete dönüştürüyoruz.
+        Alanında uzman doktor kadromuz ve hasta odaklı anlayışımızla, her bireye özel sağlık çözümleri sunuyoruz.
+      </p>
+      <p>
+        Bu platform, dermatoloji alanındaki yapay zekâ destekli tanı sistemlerimizin bir parçası olarak geliştirilmiştir.
+        Vitiligo gibi cilt hastalıklarının erken teşhisi için geliştirdiğimiz sistemimiz, tıbbi doğruluğu ve kullanıcı dostu arayüzüyle hem hastalar hem de sağlık profesyonelleri tarafından güvenle kullanılabilir.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- === FOOTER === -->
+<footer id="iletisim" class="footer">
+  <div class="footer-top">
+    <p>📞 İletişim: 0XXX XXX XX XX | 📧 info@abchastanesi.com</p>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 ABC Hastanesi | <a href="#">KVKK Politikası</a> | <a href="#">Kullanım Şartları</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

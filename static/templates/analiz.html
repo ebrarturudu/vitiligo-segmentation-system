@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Analiz Sayfası</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f6fcff;
+      padding: 40px;
+      text-align: center;
+    }
+
+    form {
+      margin-bottom: 30px;
+    }
+
+    input[type="file"] {
+      margin: 10px 0;
+    }
+
+    .img-container img {
+      width: 300px;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px 25px;
+      background-color: #0077c2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Segmentasyon Analizi</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <input type="file" name="resim" accept="image/*" required>
+    <br>
+    <button type="submit">Segmentasyonu Başlat</button>
+  </form>
+
+    {% if mesaj %}
+      <p style="color:red;">{{ mesaj }}</p>
+    {% endif %}
+
+    {% if cikti is defined and cikti %}
+      <div class="img-container">
+        <h3>Segmentasyon Sonucu</h3>
+        <img src="{{ url_for('static', filename=cikti.replace('static/', '')) }}" alt="Sonuç">
+        <p><strong>Vitiligo Alanı:</strong> %{{ oran }}</p>
+      </div>
+    {% elif cikti is defined and cikti is none %}
+      <p style="color:red;">Vitiligo tespit edilmedi, segmentasyon yapılmadı.</p>
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<div class="result-container">
+  <div>
+    <h3>Yüklenen Görsel</h3>
+    <img src="{{ original_image_url }}" alt="Orijinal Görsel">
+  </div>
+  {% if mask_image_url %}
+  <div>
+    <h3>Segmentasyon Maskesi</h3>
+    <img src="{{ mask_image_url }}" alt="Segmentasyon Maskesi">
+  </div>
+  {% else %}
+  <div>
+    <p style="color: red;">Vitiligo tespit edilmedi, segmentasyon yapılmadı.</p>
+  </div>
+  {% endif %}
+</div>
