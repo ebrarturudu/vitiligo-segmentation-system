@@ -93,24 +93,24 @@ Open: http://localhost:8080
 ```
 
 ## 📌 Notes
-Model Weights: Pretrained weights (.pth) are not included due to ongoing academic publication.
+* **Model Weights:** Pretrained weights (.pth) are not included due to ongoing academic publication.
 
-Hardware: The application automatically falls back to CPU if CUDA is not available.
+* **Hardware:** The application automatically falls back to CPU if CUDA is not available.
 
-Latency: latency_log.csv contains sample inference latency measurements.
+* **Latency:** latency_log.csv contains sample inference latency measurements.
 
 ---
 
 ## 🛠️ Technologies Used
-Language: Python
+* Language: Python
 
-Backend: Flask
+* Backend: Flask
 
-Deep Learning: PyTorch
+* Deep Learning: PyTorch
 
-Containerization: Docker
+* Containerization: Docker
 
-Frontend: HTML / CSS (Jinja Templates)
+* Frontend: HTML / CSS (Jinja Templates)
 
 ---
 
